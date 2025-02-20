@@ -20,7 +20,7 @@ int deposit()
 
             do
             {
-                printf("\nEnter deposit amount: ");
+             printf("\nEnter deposit amount: ");
                 scanf("%d", &amount);
 
                 if (amount < 100)
