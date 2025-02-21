@@ -1,69 +1,93 @@
 #include <stdio.h>
-
+int choice;
+int num_accounts = 0;
+long long account_numbers[50];
+char account_names[50][50];
+float deposits[50];
 int main()
 {
 
-    int choice;
+    while(1){
+    
+        printf("======Simple Banking System======\n");
 
-    printf("======Simple Banking System======\n");
+        printf("==============================\n");
 
-    printf("==============================\n");
+        printf("1. Create a bank Account :\n");
+        printf("2. Deposit Money :\n");
+        printf("3. Wihdraw Money :\n");
+        printf("4. Check Balance :\n");
+        printf("5. View Account Details :\n");
+        printf("6. Exits :\n");
 
-    printf("1. Create a bank Account :\n");
-    printf("2. Deposit Money :\n");
-    printf("3. Wihdraw Money :\n");
-    printf("4. Check Balance :\n");
-    printf("5. View Account Details :\n");
-    printf("6. Exits :\n");
+        printf("==============================\n");
 
-    printf("==============================\n");
+        
 
-    printf("Please enter you choice number : ");
-
-    while (1)
-    {
+        printf("Please enter you choice number : ");
 
         scanf("%d", &choice);
 
         if (choice == 1)
         {
-            printf("\nCreate a banck Account :\n");
 
-            printf("\nPlease enter you choice number :");
+            printf("\nCreate a bank Account :\n\n ");
+           
+
         }
 
         else if (choice == 2)
         {
-            printf(" \n  Deposit Money : \n");
-            printf("\nPlease enter you choice number :");
+            if (num_accounts == 0)
+            {
+                printf("\n ----- No accounts are available please create account first! ----- \n\n");
+            }
+            else
+            {
+                printf(" \n  Deposit Money : \n");
+            }
         }
         else if (choice == 3)
         {
-            printf("\n  Withdraw Money\n");
-
-            printf("\nPlease enter you choice number :");
+            if (num_accounts == 0)
+            {
+                printf("\n ----- No accounts are available please create account first! ----- \n\n");
+            }
+            else
+            {
+                printf("\n  Withdraw Money\n");
+            }
         }
         else if (choice == 4)
         {
-            printf("\n Check your balance :\n");
-
-            printf("\nPlease enter you choice number :");
+            if (num_accounts == 0)
+            {
+                printf("\n ----- No accounts are available please create account first! ----- \n\n");
+            }
+            else
+            {
+                printf("\n Check your balance :\n");
+            }
         }
         else if (choice == 5)
         {
-            printf(" \n View Account  Details :\n");
-
-            printf("\nPlease enter you choice number :");
+            if (num_accounts == 0)
+            {
+                printf("\n ----- No accounts are available please create account first! ----- \n\n");
+            }
+            else
+            {
+                printf(" \n View Account  Details :\n");
+            }
         }
         else if (choice == 6)
         {
-            printf(" \n  Exiting : thank you!");
+            printf(" \n Thank you for visiting!");
             break;
         }
         else
         {
             printf(" \n Invalid Choice Please try again!\n ");
-            printf("\nPlease enter you choice number :");
         }
     }
     return 0;
