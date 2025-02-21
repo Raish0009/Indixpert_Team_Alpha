@@ -8,8 +8,6 @@ int main()
     char creat_account_name[40];
     float deposit;
 
-    
-
     printf("======Simple Banking System======\n");
 
     printf("==============================\n");
@@ -18,14 +16,13 @@ int main()
     printf("3. Wihdraw Money :\n");
     printf("4. Check Balance :\n");
     printf("5. View Account Details :\n");
-    printf("6. Exits :\n");
+    printf("0. Exits :\n");
     printf("==============================\n");
 
     printf("Please enter you choice number : ");
 
     while (1)
     {
-        
 
         scanf("%d", &choice);
 
@@ -89,7 +86,7 @@ int main()
         }
         else if (choice == 0)
         {
-             printf(" \n  Exiting : thank you!"); 
+            printf(" \n  Exiting : thank you!");
             break;
         }
         else
