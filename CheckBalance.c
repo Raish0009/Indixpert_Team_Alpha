@@ -149,7 +149,7 @@ void checkBalance()
     char Account_number[50];
     int AccountFound = 0;
 
-    printf("\nEnter account number to check balance: ");
+    printf("\nEnter account number to check balance : ");
     scanf("%s", Account_number);
 
     for (int i = 0; i < num_accounts; i++)
