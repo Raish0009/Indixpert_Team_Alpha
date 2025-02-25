@@ -9,7 +9,7 @@ int main()
 
     while(1){
     
-        printf("======Simple Banking System======\n");
+        printf("\n======Simple Banking System======\n");
 
         printf("==============================\n");
 
@@ -26,7 +26,13 @@ int main()
 
         printf("Please enter you choice number : ");
 
-        scanf("%d", &choice);
+
+        if( scanf("%d", &choice)!=1){
+            printf("\n Invalid input Please enter your number: ");
+            while (getchar()!='\n');
+            continue;
+        }
+            
 
         if (choice == 1)
         {
