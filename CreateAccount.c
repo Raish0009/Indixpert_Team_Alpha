@@ -20,7 +20,7 @@ int validate()
     scanf("%s", &account_numbers[num_accounts]);
 
     int length = strlen(account_numbers[num_accounts]);
-    
+
     for (int i = 0; i < length; i++)
     {
         if (!isdigit(account_numbers[num_accounts][i]))
@@ -36,21 +36,42 @@ int validate()
     return flag;
 }
 
+int validateAccountName()
+{
+    int flag = 1;
+
+    printf("Enter account holder name: ");
+    scanf("%s", account_names[num_accounts]);
+
+    int length = strlen(account_names[num_accounts]);
+
+    for (int i = 0; i < length; i++)
+    {
+        if (!isalpha(account_names[num_accounts][i]))
+        {
+            printf("Invalid account name! Only alphabets are allowed.\n");
+            flag = 0;
+            break;
+        }
+    }
+
+    return flag;
+}
+
 void createAccount()
 {
-
     printf("\nCreate a bank Account:\n");
-
     validate();
 
-    while (strlen(account_numbers[num_accounts])<11 || strlen(account_numbers[num_accounts])>11)
+    while (strlen(account_numbers[num_accounts]) != 11)
     {
         printf("Please enter an 11-digit number: ");
         scanf("%s", &account_numbers[num_accounts]);
     }
 
-    printf("Enter account holder name: ");
-    scanf("%s", &account_names[num_accounts]);
+    if (!validateAccountName()){
+        return;
+    }
 
     printf("Enter your deposit amount: ");
     scanf("%f", &deposits[num_accounts]);
@@ -68,88 +89,79 @@ void createAccount()
 
     num_accounts++;
 }
-
 int main()
 {
-
     while (1)
     {
-
         printf("======Simple Banking System======\n");
-
         printf("==============================\n");
-
-        printf("1. Create a bank Account :\n");
-        printf("2. Deposit Money :\n");
-        printf("3. Wihdraw Money :\n");
-        printf("4. Check Balance :\n");
-        printf("5. View Account Details :\n");
-        printf("6. Exits :\n");
-
+        printf("1. Create a bank Account:\n");
+        printf("2. Deposit Money:\n");
+        printf("3. Withdraw Money:\n");
+        printf("4. Check Balance:\n");
+        printf("5. View Account Details:\n");
+        printf("6. Exit:\n");
         printf("==============================\n");
+        printf("Please enter your choice number: ");
 
-        printf("Please enter you choice number : ");
-
-        scanf("%d", &choice);
-
-        if (choice == 1)
+        if (scanf("%d", &choice) != 1)
         {
-
-            createAccount();
+            printf("\nInvalid choice, please try again!\n\n");
+            while (getchar() != '\n'); 
+            continue;
         }
 
-        else if (choice == 2)
+        switch (choice)
         {
-            if (num_accounts == 0)
-            {
-                printf("\n ----- No accounts are available please create account first! ----- \n\n");
-            }
-            else
-            {
-                printf(" \n  Deposit Money : \n\n");
-            }
-        }
-        else if (choice == 3)
-        {
-            if (num_accounts == 0)
-            {
-                printf("\n ----- No accounts are available please create account first! ----- \n\n");
-            }
-            else
-            {
-                printf("\n  Withdraw Money\n\n");
-            }
-        }
-        else if (choice == 4)
-        {
-            if (num_accounts == 0)
-            {
-                printf("\n ----- No accounts are available please create account first! ----- \n\n");
-            }
-            else
-            {
-                printf("\n Check your balance :\n\n");
-            }
-        }
-        else if (choice == 5)
-        {
-            if (num_accounts == 0)
-            {
-                printf("\n ----- No accounts are available please create account first! ----- \n\n");
-            }
-            else
-            {
-                printf(" \n View Account  Details :\n\n");
-            }
-        }
-        else if (choice == 6)
-        {
-            printf(" \n  Thank you! for visiting \n\n");
-            break;
-        }
-        else
-        {
-            printf(" \n Invalid Choice Please try again!\n \n");
+            case 1:
+                createAccount();
+                break;
+            case 2:
+                if (num_accounts == 0)
+                {
+                    printf("\n----- No accounts are available, please create an account first! -----\n\n");
+                }
+                else
+                {
+                    printf(" \n  Deposit Money : \n\n");
+                }
+                break;
+            case 3:
+                if (num_accounts == 0)
+                {
+                    printf("\n----- No accounts are available, please create an account first! -----\n\n");
+                }
+                else
+                {
+                    printf("\n  Withdraw Money\n\n");
+                }
+                break;
+            case 4:
+                if (num_accounts == 0)
+                {
+                    printf("\n----- No accounts are available, please create an account first! -----\n\n");
+                }
+                else
+                {
+                    printf("\n Check your balance :\n\n");
+                }
+                break;
+            case 5:
+                if (num_accounts == 0)
+                {
+                    printf("\n----- No accounts are available, please create an account first! -----\n\n");
+                }
+                else
+                {
+                    printf(" \n View Account  Details :\n\n");
+                }
+                break;
+            case 6:
+                printf("\nThank you for visiting!\n\n");
+                return 0;
+            default:
+                printf("\nInvalid choice, please try again!\n\n");
+                break;
         }
     }
     return 0;
